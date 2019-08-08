@@ -28,7 +28,7 @@ regressor = DecisionTreeRegressor(random_state = 0)
 regressor.fit(x, y)
 
 # Predicting a new result
-y_pred = regressor.predict(np.array([6.6]).reshape(-1,1))
+y_pred = regressor.predict(np.array([6.5]).reshape(-1,1))
 
 # Visualising the Decision Tree Regression results (higher resolution)
 x_grid = np.arange(min(x), max(x), 0.01)

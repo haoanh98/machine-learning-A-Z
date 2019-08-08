@@ -1,10 +1,9 @@
 import pandas as pd
 df = pd.read_csv("./data.txt",sep="/",names=["row"]).dropna()
 df.head(7)
-
 import re
 def transform_row(row):
-    row = re.sub(r"^[0-9\.,]+", "", row)
+    row = re.sub(r"^[0-9\.,]+", "", row) #
     
     row = re.sub(r"[\.,\?]+$", "", row)
     
@@ -51,7 +50,7 @@ for word in model.wv.vocab.keys():
     words_np.append(model.wv[word])
     words_label.append(word)
 
-pca = PCA(n_components=2)
+pca = PCA(n_components=2) 
 pca.fit(words_np)
 reduced = pca.transform(words_np)
 
@@ -60,7 +59,7 @@ for index,vec in enumerate(reduced):
     if index <200:
         x,y=vec[0],vec[1]
         plt.scatter(x,y)
-        (words_label[index],xy=(x,y))
+        plt.annotate(words_label[index],xy=(x,y))
 plt.show()
 
     
